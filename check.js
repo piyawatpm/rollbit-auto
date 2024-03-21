@@ -237,4 +237,3 @@ const profileDirectory = "Person 1"; // Name of the profile directory you want t
   }
   // Close the browser
 })();
-

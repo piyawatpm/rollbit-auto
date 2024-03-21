@@ -189,8 +189,8 @@ const profileDirectory = "Profile 6"; // Name of the profile directory you want 
       const opponentPriceNumber =
         Number(opponentPriceContent.replace(/\D/g, "")) / 100;
 
-      if (opponentPriceNumber > 50 || opponentPriceNumber < 10.8) {
-        console.log("case >50 < 10.8", opponentPriceNumber);
+      if (opponentPriceNumber > 60 || opponentPriceNumber < 10.8) {
+        console.log("case >55 < 10.8", opponentPriceNumber);
 
         await handleBan1Min();
       } else {
@@ -255,4 +255,3 @@ const profileDirectory = "Profile 6"; // Name of the profile directory you want 
   }
   // Close the browser
 })();
-

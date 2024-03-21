@@ -111,7 +111,7 @@ const profileDirectory = "Artpmmmrooo"; // Name of the profile directory you wan
       await delay(750);
       const confirmBanButtonSelector = `#root > div.css-yj8y94 > div.css-1gcbewu > div > div.css-s63olu > div.css-e6dost > div > div:nth-child(3) > button:nth-child(2)`;
       const confirmCancelButtonSelector = `#root > div.css-yj8y94 > div.css-1gcbewu > div > div.css-s63olu > div.css-1ky6vx > div > div > button:nth-child(2)`;
-   
+
       await handleClickSelector(confirmCancelButtonSelector);
       await delay(750);
       await handleClickSelector(confirmBanButtonSelector);
@@ -190,7 +190,7 @@ const profileDirectory = "Artpmmmrooo"; // Name of the profile directory you wan
         Number(opponentPriceContent.replace(/\D/g, "")) / 100;
 
       if (opponentPriceNumber > 60 || opponentPriceNumber < 10.8) {
-        console.log("case >60 < 10.8", opponentPriceNumber);
+        console.log("case >105 < 10.8", opponentPriceNumber);
 
         await handleBan1Min();
       } else {
@@ -255,4 +255,3 @@ const profileDirectory = "Artpmmmrooo"; // Name of the profile directory you wan
   }
   // Close the browser
 })();
-
