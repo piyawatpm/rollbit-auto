@@ -18,7 +18,7 @@ run_for_10_seconds() {
     node accept2.js &
     NODE_PID_4=$!
     # Sleep for 10 seconds
-    sleep 6000
+    sleep 3000
 
     # Stop both Node.js processes
     kill $NODE_PID_1
@@ -38,3 +38,5 @@ do
     run_for_10_seconds
     sleep_for_5_seconds
 done
+
+
