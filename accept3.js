@@ -12,15 +12,15 @@ const profileDirectory = "Artpmmmrooo"; // Name of the profile directory you wan
 (async () => {
   const browser = await puppeteer.launch({
     userDataDir:
-      "/Users/piyawatmahattanasawat/Library/Application Support/Google/Chrome/Profile 6",
+      "/Users/piyawatmahattanasawat/Library/Application Support/Google/Chrome/Profile 7",
     // userDataDir:
     //   "/Users/Piyawat/Library/Application Support/Google/Chrome", // Path to Chrome user data directory
     // headless: false, // Set to true if you want to run in headless mode
     // userDataDir: `/Users/piyawatmahattanasawat/Library/Application Support/Google/Chrome/Piyawat`,
-    // args: [`--profile-directory=${profileDirectory}`,'--disable-extensions'],
+    args: [`--profile-directory=${profileDirectory}`, "--disable-extensions"],
   });
   const page = await browser.newPage();
-  // await page.setViewport({ width: 800, height: 220 });
+  await page.setViewport({ width: 800, height: 220 });
   const handleClickSelector = async (selector) => {
     try {
       await page.waitForSelector(selector, { timeout: 1000 });

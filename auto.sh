@@ -2,29 +2,40 @@
 
 # Function to run a Node.js file for 10 seconds
 run_for_10_seconds() {
-    # Run checkAndCreateRoom.js
+
     node check.js &
     NODE_PID_1=$!
 
-    # Run acceptDuel.js
+
     node accept.js &
     NODE_PID_2=$!
 
-    # Run checkAndCreateRoom.js
-    node check2.js &
-    NODE_PID_3=$!
+  
+    # node check2.js &
+    # NODE_PID_3=$!
 
-    # Run acceptDuel.js
-    node accept2.js &
-    NODE_PID_4=$!
+    
+    # node accept2.js &
+    # NODE_PID_4=$!
+    
+ 
+    node check3.js &
+    NODE_PID_5=$!
+
+ 
+    node accept3.js &
+    NODE_PID_6=$!
+    
     # Sleep for 10 seconds
     sleep 3000
 
     # Stop both Node.js processes
     kill $NODE_PID_1
     kill $NODE_PID_2
-    kill $NODE_PID_3
-    kill $NODE_PID_4
+    # kill $NODE_PID_3
+    # kill $NODE_PID_4
+    kill $NODE_PID_5
+    kill $NODE_PID_6
 }
 
 # Function to sleep for 5 seconds

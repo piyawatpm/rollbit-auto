@@ -20,6 +20,7 @@ const profileDirectory = "Person 1"; // Name of the profile directory you want t
     // userDataDir:
     //   "/Users/Piyawat/Library/Application Support/Google/Chrome", // Path to Chrome user data directory
     // headless: false, // Set to true if you want to run in headless mode
+
     // userDataDir: `/Users/piyawatmahattanasawat/Library/Application Support/Google/Chrome/Piyawat`,
     args: [`--profile-directory=${profileDirectory}`, "--disable-extensions"],
   });
@@ -33,8 +34,13 @@ const profileDirectory = "Person 1"; // Name of the profile directory you want t
       if (buttonClick) {
         await buttonClick.evaluate((b) => b.click());
       } else {
+        
       }
-    } catch (error) {}
+      
+    } catch (error) {
+      
+      
+    }
   };
 
   // Navigate to rollbit.com
@@ -45,6 +51,7 @@ const profileDirectory = "Person 1"; // Name of the profile directory you want t
     const closePopupSelector =
       "#rollbit-modal-popover-container > div > div > div > div.css-1nc5kzu > div";
     await handleClickSelector(closePopupSelector);
+    
   };
   // // click login
   // const loginButtonSelector = "#root > div.css-1cn0dze > div > div";
@@ -64,14 +71,16 @@ const profileDirectory = "Person 1"; // Name of the profile directory you want t
   // const submitButtonSelector =
   //   "#rollbit-modal-popover-container > div > div > div > div > div.css-nwen1v > form > button";
   // await handleClickSelector(submitButtonSelector);
+  
 
   const handleCreateRoom = async (price) => {
+    
     const lobbyButtonSelector = `.css-93ujpa > :first-child`;
     await handleClickSelector(lobbyButtonSelector);
     const createRoomButton = `img[alt="plus"]`;
     //   await page.click(".css-bt07qr");
     await handleClickSelector(createRoomButton);
-
+    
     const addButton = `img[alt="coins"]`;
     await handleClickSelector(addButton);
     const amountInputSelector = `input[autocomplete="off"]:not([placeholder])`;
@@ -92,7 +101,11 @@ const profileDirectory = "Person 1"; // Name of the profile directory you want t
       // back to lobby
 
       await handleClickSelector(lobbyButtonSelector);
-    } catch (error) {}
+    } catch (error) {
+      
+    }
+
+    
   };
 
   // await handleCreateRooms(roomPrices);
@@ -112,8 +125,10 @@ const profileDirectory = "Person 1"; // Name of the profile directory you want t
       let result;
       for (const item of array) {
         result = await handleCreateRoom(item);
+        
       }
       // await delay(2500);
+      await delay(500);
       return result;
     }
     const roomSelector = [
@@ -148,6 +163,7 @@ const profileDirectory = "Person 1"; // Name of the profile directory you want t
               (element) => element.textContent,
               elementHandle
             );
+            
 
             return content;
             // Perform further actions based on the content, if needed
@@ -194,7 +210,7 @@ const profileDirectory = "Person 1"; // Name of the profile directory you want t
             await delay(500);
 
             result = await handleClickSelector(item);
-
+            
             const amountInRoomSelector = `#root > div.css-yj8y94 > div.css-1gcbewu > div > div.css-s63olu > div.css-1w9prk4 > div > div > div > div > div.css-9sbvmf > div:nth-child(1) > div > div > div > div > span`;
             await page.waitForSelector(amountInRoomSelector, { timeout: 2000 });
             const amountElement = await page.$(amountInRoomSelector);
@@ -206,19 +222,19 @@ const profileDirectory = "Person 1"; // Name of the profile directory you want t
 
               const amountNumber = Number(amountText.replace(/\D/g, ""));
               const roomContent = await handleCheckSelectorContent(item);
-
+              
               if (
                 !roomPriceTemp.includes(amountNumber) &&
                 roomContent === "Waiting..."
               ) {
                 // await delay(1000);
                 await handleClearRoom();
-
+                
                 isReadyToCreate = false;
                 return;
               } else {
                 roomPriceTemp = roomPriceTemp.filter((p) => p !== amountNumber);
-
+                
                 amounts.push(amountText);
               }
             } else {
@@ -240,7 +256,7 @@ const profileDirectory = "Person 1"; // Name of the profile directory you want t
       return number;
     });
     const roomLeft = roomPrices.filter((price) => !numbersOnly.includes(price));
-
+    
     if (isReadyToCreate) {
       await handleCreateRooms(roomLeft);
     }
@@ -250,9 +266,10 @@ const profileDirectory = "Person 1"; // Name of the profile directory you want t
     await delay(500);
     roomPriceTemp = [11, 15, 20, 25, 30];
     const lobbyButtonSelector = `.css-93ujpa > :first-child`;
-
+    
     await handleClickSelector(lobbyButtonSelector);
     // await delay(1000); // Wait for 10 seconds
+    
 
     await checkAndCreateRoom();
 

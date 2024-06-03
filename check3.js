@@ -10,18 +10,19 @@ function delay(time) {
 const userDataDir =
   "/Users/piyawatmahattanasawat/Library/Application Support/Google/Chrome"; // Path to Chrome's user data directory
 const profileDirectory = "Person 1"; // Name of the profile directory you want to use
-
 (async () => {
-  const roomPrices = [40, 50, 60, 70, 80];
-  let roomPriceTemp = [40, 50, 60, 70, 80];
+  const roomPrices = [11, 15, 20, 25, 30];
+  let roomPriceTemp = [11, 15, 20, 25, 30];
   const browser = await puppeteer.launch({
     userDataDir:
-      "/Users/piyawatmahattanasawat/Library/Application Support/Google/Chrome/Default",
+      "/Users/piyawatmahattanasawat/Library/Application Support/Google/Chrome/Profile 8",
+    // executablePath: require("puppeteer").executablePath(),
     // userDataDir:
     //   "/Users/Piyawat/Library/Application Support/Google/Chrome", // Path to Chrome user data directory
     headless: false, // Set to true if you want to run in headless mode
+
     // userDataDir: `/Users/piyawatmahattanasawat/Library/Application Support/Google/Chrome/Piyawat`,
-    args: [`--profile-directory=${profileDirectory}`],
+    args: [`--profile-directory=${profileDirectory}`, "--disable-extensions"],
   });
   const page = await browser.newPage();
   await page.setViewport({ width: 800, height: 220 });
@@ -66,6 +67,7 @@ const profileDirectory = "Person 1"; // Name of the profile directory you want t
   // await handleClickSelector(submitButtonSelector);
 
   const handleCreateRoom = async (price) => {
+    console.log("try to create for 2", price);
     const lobbyButtonSelector = `.css-93ujpa > :first-child`;
     await handleClickSelector(lobbyButtonSelector);
     const createRoomButton = `img[alt="plus"]`;
@@ -248,7 +250,7 @@ const profileDirectory = "Person 1"; // Name of the profile directory you want t
 
   while (true) {
     await delay(500);
-    roomPriceTemp = [40, 50, 60, 70, 80];
+    roomPriceTemp = [11, 15, 20, 25, 30];
     const lobbyButtonSelector = `.css-93ujpa > :first-child`;
 
     await handleClickSelector(lobbyButtonSelector);

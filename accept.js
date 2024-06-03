@@ -15,7 +15,7 @@ const profileDirectory = "Artpmmmrooo"; // Name of the profile directory you wan
       "/Users/piyawatmahattanasawat/Library/Application Support/Google/Chrome/Artpmmmrooo",
     // userDataDir:
     //   "/Users/Piyawat/Library/Application Support/Google/Chrome", // Path to Chrome user data directory
-    headless: false, // Set to true if you want to run in headless mode
+    // headless: false, // Set to true if you want to run in headless mode
     // userDataDir: `/Users/piyawatmahattanasawat/Library/Application Support/Google/Chrome/Piyawat`,
     args: [`--profile-directory=${profileDirectory}`, "--disable-extensions"],
   });
@@ -200,7 +200,7 @@ const profileDirectory = "Artpmmmrooo"; // Name of the profile directory you wan
       const opponentPriceNumber =
         Number(opponentPriceContent.replace(/\D/g, "")) / 100;
 
-      if (opponentPriceNumber > 60 || opponentPriceNumber < 10.8) {
+      if (opponentPriceNumber > 101 || opponentPriceNumber < 10.8) {
         await handleBan1Min();
       } else {
         await handleChangePrice(opponentPriceNumber);
